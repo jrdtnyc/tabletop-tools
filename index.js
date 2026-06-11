@@ -6,7 +6,13 @@
  * @returns {boolean} whether the wizard can cast the spell
  */
 function canCastSpell(isSpellPrepared, hasScroll) {
-  // TODO
+  if (isSpellPrepared || hasScroll) {
+    console.log("Spell can be cast");
+    return true;
+  } else {
+    console.log("Spell cannot be cast!");
+    return false;
+  }
 }
 
 /**
@@ -17,7 +23,13 @@ function canCastSpell(isSpellPrepared, hasScroll) {
  * @returns {boolean} whether the creature is hidden from the observer
  */
 function isHidden(hiding, aware) {
-  // TODO
+  if (hiding || !aware) {
+    console.log("The creature is hidden from the observer");
+    return true;
+  } else {
+    console.log("The creature is not hidden");
+    return false;
+  }
 }
 
 /**
@@ -129,3 +141,5 @@ function canSee(light, vision) {
 function getStrikeDamage(attack, ac, damage) {
   // TODO
 }
+
+/*..........Calling Functions..........*/
