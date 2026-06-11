@@ -40,7 +40,13 @@ function isHidden(hiding, aware) {
  * @returns {boolean} whether the strike hits
  */
 function doesStrikeHit(attack, ac) {
-  // TODO
+  if (attack > ac) {
+    console.log("The attack has hit");
+    return true;
+  } else {
+    console.log("The attack did not hit");
+    return false;
+  }
 }
 
 /**
@@ -51,7 +57,14 @@ function doesStrikeHit(attack, ac) {
  * @returns {boolean} whether the strike is a critical hit
  */
 function doesStrikeCrit(attack, ac) {
-  // TODO
+  let diff = attack - ac;
+  if (diff > 10) {
+    console.log("The strike is a critical hit");
+    return true;
+  } else {
+    console.log("The strike was not a critical hit");
+    return false;
+  }
 }
 
 /**
