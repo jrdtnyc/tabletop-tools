@@ -127,7 +127,14 @@ function getProficiencyBonus(level, rank) {
  * @returns {number} the cover bonus to AC
  */
 function getCoverBonus(behindObstacle, takingCover) {
-  // TODO
+  if (behindObstacle) {
+    return 2;
+  }
+  if (takingCover) {
+    return 4;
+  } else {
+    return 0;
+  }
 }
 
 /**
@@ -173,4 +180,3 @@ function getStrikeDamage(attack, ac, damage) {
 }
 
 /*..........Calling Functions..........*/
-console.log(getProficiencyBonus(2, "master"));
