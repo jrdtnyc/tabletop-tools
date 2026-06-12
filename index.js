@@ -40,7 +40,7 @@ function isHidden(hiding, aware) {
  * @returns {boolean} whether the strike hits
  */
 function doesStrikeHit(attack, ac) {
-  if (attack > ac) {
+  if (attack >= ac) {
     console.log("The attack has hit");
     return true;
   } else {
@@ -189,7 +189,18 @@ function canSee(light, vision) {
  * @returns {number} damage dealt by the strike
  */
 function getStrikeDamage(attack, ac, damage) {
-  // TODO
+  let diff = attack - ac;
+  if (attack >= ac && diff > 10) {
+    console.log("The attack is critical");
+    return damage * 2;
+  } else if (attack >= ac && diff <= 10) {
+    console.log("The attack has landed");
+    return damage;
+  } else {
+    console.log("The attack did not hit");
+    return 0;
+  }
 }
 
 /*..........Calling Functions..........*/
+console.log(getStrikeDamage(22, 50, 15));
