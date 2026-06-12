@@ -129,8 +129,7 @@ function getProficiencyBonus(level, rank) {
 function getCoverBonus(behindObstacle, takingCover) {
   if (behindObstacle) {
     return 2;
-  }
-  if (takingCover) {
+  } else if (takingCover) {
     return 4;
   } else {
     return 0;
@@ -150,7 +149,13 @@ function getCoverBonus(behindObstacle, takingCover) {
  * @returns {number} the creature's remaining HP after taking damage
  */
 function getRemainingHp(maxHp, currentHp, damage) {
-  // TODO
+  if (damage > maxHp) {
+    return -1;
+  } else if (currentHp - damage <= 0) {
+    return 0;
+  } else {
+    return currentHp - damage;
+  }
 }
 
 /**
@@ -162,7 +167,15 @@ function getRemainingHp(maxHp, currentHp, damage) {
  * @returns {boolean} whether the creature can see
  */
 function canSee(light, vision) {
-  // TODO
+  if (light === "bright") {
+    return true;
+  } else if (light === "dim" && (vision === "low-light" || vision === "dark")) {
+    return true;
+  } else if (light === "dark" && vision === "dark") {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /**
